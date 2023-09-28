@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+
+    <style>
+        
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: black;
+            margin: 10vh;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        #housingForm {
+            max-width: 400px;
+            margin: 15px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border: 1px solid red;
+            border-radius: 25px;
+            
+        }
+
+        #price{
+
+            margin-left: 150px;
+        }
+
+        #area{
+
+            margin-left: 45px
+        }
+
+        #parking_no{
+
+            margin-left: 45px
+        }
+
+
+        #bedrooms{
+
+            margin-left: 38px;
+        }
+        
+        #bathrooms {
+
+            margin-left: 33px;
+        }
+
+        #submit{
+
+            display: flex;
+            margin-left: 130px;
+            width: 150px;
+            justify-content: center;
+            color: red;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        #submit{
+
+            font-size: larger;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bolder;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <H1>House Price Prediction Input Form</H1>
+
+    <form action="/showpredictedprice" id="housingForm" method="post">
+
+        <label for="area">Area (in square feet):</label>
+        <input type="number" id="area" name="area" value={{data["area"]}} required><br><br>
+
+        <label for="bedrooms">Number of Bedrooms:</label>
+        <input type="number" id="bedrooms" name="bedrooms" value={{data["bedrooms"]}} required><br><br>
+
+        <label for="bathrooms">Number of Bathrooms:</label>
+        <input type="number" id="bathrooms" name="bathrooms" value={{data["bathrooms"]}} required><br><br>
+
+        <label>Main Road:</label>
+        <input type="radio" id="mainroad" name="mainroad" value="yes" {{ 'checked' if data["mainroad"]==1 else '' }} required>
+        <label for="mainroad_yes">Yes</label>
+        <input type="radio" id="mainroad" name="mainroad" value="no" {{ 'checked' if data["mainroad"]==0 else '' }} >
+        <label for="mainroad_no">No</label><br><br>
+
+        <label>Guest Room:</label>
+        <input type="radio" id="guestroom" name="guestroom" value="yes" {{ 'checked' if data["guestroom"]==1 else '' }} required>
+        <label for="guestroom_yes">Yes</label>
+        <input type="radio" id="guestroom" name="guestroom" value="no" {{ 'checked' if data["guestroom"]==0 else '' }} >
+        <label for="guestroom_no">No</label><br><br>
+
+        <label>Hot Water Heating:</label>
+        <input type="radio" id="hotwaterheating" name="hotwaterheating" value="yes" {{ 'checked' if data["hotwaterheating"]==1 else '' }} required>
+        <label for="hotwaterheating_yes">Yes</label>
+        <input type="radio" id="hotwaterheating" name="hotwaterheating" value="no"{{ 'checked' if data["hotwaterheating"]==0 else '' }} >
+        <label for="hotwaterheating_no">No</label><br><br>
+
+        <label>Air Conditioning:</label>
+        <input type="radio" id="airconditioning_yes" name="airconditioning" value="yes" {{ 'checked' if data["airconditioning"]==1 else '' }} required>
+        <label for="airconditioning_yes">Yes</label>
+        <input type="radio" id="airconditioning_no" name="airconditioning" value="no" {{ 'checked' if data["airconditioning"]==0 else '' }} >
+        <label for="airconditioning_no">No</label><br><br>
+
+        <label for="parking_no">Parking No:</label>
+        <input type="number" id="parking_no" name="parking" value={{data["parking"]}} required><br><br>
+
+        <label>Preferred Area:</label>
+        <input type="radio" id="prefarea_yes" name="prefarea" value="yes" {{ 'checked' if data["prefarea"]==1 else '' }} required>
+        <label for="prefarea_yes">Yes</label>
+        <input type="radio" id="prefarea_no" name="prefarea" value="no" {{ 'checked' if data["prefarea"]==0 else '' }} >
+        <label for="prefarea_no">No</label><br><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" value={{data["price"]}} ><br><br>
+
+        <input id="submit" type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
